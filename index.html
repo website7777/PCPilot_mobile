@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pc Pilot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 480px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+        }
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 50px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            z-index: 1000;
+            padding: 10px;
+        }
+        .menu-dropdown.active {
+            display: block;
+        }
+        .menu-dropdown ul {
+            list-style: none;
+        }
+        .menu-dropdown ul li {
+            padding: 8px 0;
+        }
+        .menu-dropdown ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin: 20px 0;
+        }
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        #btn1 {
+            background-color: #4FD1C5;
+            color: white;
+            width: 160.04px;
+            height: 49.6px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background: #D9D9D9;
+            padding: 10px;
+            width: 30%;
+            text-align: center;
+        }
+        .feature-card h2 {
+            font-size: 0.9rem;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        #Download {
+            background-color: #f3f3f3;
+            padding: 20px;
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 5vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #btn2 {
+            width: 160.04px;
+            height: 49.6px;
+            background-color: #4FD1C5;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #command{
+            width: 100%;
+            height: auto;
+            margin-top: 23px;
+            margin-bottom: 23px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p>PCPilot</p>
+            <img id="menu" src="menu.png" alt="Menu" style="width: 40px; height: 40px; cursor: pointer;">
+        </header>
+        <div class="menu-dropdown">
+            <ul>
+                <li><a href="https://youtu.be/g3E7NnS_3Ww?si=V6gLlhct_-ugVfqJ">Eng   </a><a href="https://youtu.be/05RHJ3Q7flY?si=FA0mCjyL_0t22RJL">Ru</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#video">Demo</a></li>
+                <li><a href="#Download">Get Started</a></li>
+            </ul>
+        </div>
+        <h1>Control Your PC From Anywhere</h1>
+        <p>Take command of your computer remotely through Telegram. Simple, secure, and seamless control at your fingertips.</p>
+        <button id="btn1" onclick="location.href='#Download'">Get Started →</button>
+        <h1 id="features">Key Features</h1>
+        <div class="features">
+            <div class="feature-card">
+                <img src="1.png" alt="Mobile Control" style="width: 50px; height: 50px;">
+                <h2>Mobile Control</h2>
+                <p>Control your PC from your phone using Telegram's familiar interface</p>
+            </div>
+            <div class="feature-card">
+                <img src="2.png" alt="Remote Access" style="width: 50px; height: 50px;">
+                <h2>Remote Access</h2>
+                <p>Access your computer's functions from anywhere in the world</p>
+            </div>
+            <div class="feature-card">
+                <img src="3.png" alt="Quick Commands" style="width: 50px; height: 50px;">
+                <h2>Quick Commands</h2>
+                <p>Execute common tasks with simple Telegram commands</p>
+            </div>
+        </div>
+        <h1>See It In Action</h1>
+        <video id="video" src="eng_new.mp4" controls></video>
+        <img id="command" src="command.png" alt="">
+        <div id="Download">
+            <h1>Ready to Take Control?</h1>
+            <p>Start controlling your PC remotely with our easy-to-use Telegram bot.</p>
+            <button id="btn2" onclick="location.href='https://drive.google.com/drive/u/1/folders/1Sz-M5Va0k6l5C1lkRKGuWdE7HvZ1pMZ1'">Download Now</button>
+        </div>
+    </div>
+    <script>
+        const menuButton = document.querySelector('#menu');
+        const menuDropdown = document.querySelector('.menu-dropdown');
+        menuButton.addEventListener('click', function() {
+            menuDropdown.classList.toggle('active');
+        });
+        document.addEventListener('click', function(event) {
+            if (!menuButton.contains(event.target) && !menuDropdown.contains(event.target)) {
+                menuDropdown.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
